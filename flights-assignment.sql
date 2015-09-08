@@ -40,11 +40,13 @@ GROUP BY manufacturer ASC;
 
 -- problem 4
 -- trying to select airplanes that fly into EWR airport and see what the weather is on July 5th
-
-SELECT *
+Select *
 FROM planes
 JOIN flights
 ON planes.tailnum=flights.tailnum
+AND dest
 JOIN weather
-ON weather.orgin=planes.orgin
-WHERE flights.year=2013 AND flights.month=7 AND flights.day=5 AND orgin=EWR;
+on flights.dest=weather.origin
+WHERE flights.year=2013 AND flights.month=7 AND flights.day=5 AND flights.origin='EWR';
+
+
